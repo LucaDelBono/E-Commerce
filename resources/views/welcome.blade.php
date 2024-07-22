@@ -1,8 +1,8 @@
 @extends('layout.app')
 @section('content')
-    @include('component.navbar')
-    @include('component.successMessage')
-    @include('component.searchBar')
+    @include('components.navbar')
+    @include('components.successMessage')
+    @include('components.searchBar')
     <div class="mt-20">
         <main class="container max-w-screen-xl flex flex-grow justify-between mx-auto p-4">
             <div class="grid grid-flow-row grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 gap-y-32 w-fit">

@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('content')
-@include('component.navbar')
+@include('components.navbar')
 <div>
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto mt-20 lg:py-0">
         <div class="flex items-center mb-6 text-2xl font-semibold text-gray-900">

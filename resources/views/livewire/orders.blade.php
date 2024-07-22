@@ -1,7 +1,7 @@
 <div>
-    @include('component.navbar')
-    @include('component.successMessage')
-    @include('component.errorMessage')
+    @include('components.navbar')
+    @include('components.successMessage')
+    @include('components.errorMessage')
     @section('title', 'Ordini | ')
 
     <section class="py-8 antialiased md:py-16">

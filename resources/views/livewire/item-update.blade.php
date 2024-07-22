@@ -1,6 +1,6 @@
 <div>
-    @include('component.navbar')
-    @include('component.successMessage')
+    @include('components.navbar')
+    @include('components.successMessage')
     <div class="mt-10">
         <div class="flex items-center justify-center">
             <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
@@ -66,11 +66,19 @@
                                 <div wire:loading wire:target="image">
                                     <span class="text-green-500">Uploading...</span>
                                 </div>
-                                <div class="flex justify-end">
-                                    <button type="submit"
+                                <div x-data class="flex justify-end">
+                                    <button x-on:click="$dispatch('open-modal', {name : 'update'})" type="button" 
                                         class="text-gray bg-gray-300 border border-black hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-gray-600 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
                                         Modifica articolo
                                     </button>
+                                    <x-modal name="update" title="Aggiornare articolo?">
+                                        @slot('body')
+                                        <button type="submit" 
+                                        class="px-4 py-2 font-bold bg-green-500 hover:bg-green-600 text-white rounded">
+                                        Conferma
+                                    </button>
+                                        @endslot
+                                    </x-modal>
                                 </div>
                             </form>
                         </div>

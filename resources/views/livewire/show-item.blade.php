@@ -1,6 +1,6 @@
 <div>
-    @include('component.navbar')
-    @include('component.successMessage')
+    @include('components.navbar')
+    @include('components.successMessage')
     @section('title', $item->name.' | ')
     <div class="mt-20 py-8">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">

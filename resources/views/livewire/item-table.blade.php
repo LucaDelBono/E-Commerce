@@ -1,12 +1,11 @@
 <div>
-    @include('component.navbar')
-    @include('component.successMessage')
+    @include('components.navbar')
+    @include('components.successMessage')
     @section('title', 'Articoli | ')
 
     <section class="mt-10">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
             <p class="text-2xl font-semibold mb-5">Tabella articoli</p>
-            <!-- Start coding here -->
             <div class="bg-white  relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="flex items-center justify-between d p-4">
                     <div class="flex">
@@ -50,22 +49,26 @@
                                         {{ Str::limit($item->description, 50) }}</td>
                                     <td class="px-4 py-3">{{ $item->quantity }}</td>
                                     <td class="px-4 py-3">{{ $item->price }}</td>
-                                    <td class="px-4 py-3">{{\Carbon\Carbon::parse($item->created_at)->format('d/m/y')}}</td>
-                                    <td class="px-4 py-3 flex items-center justify-end">
-                                        <button
-                                            onclick="confirm('Vuoi eliminare definitivamente questo articolo?') || event.stopImmediatePropagation()"
-                                            wire:click="delete({{ $item->id }})"
+                                    <td class="px-4 py-3">
+                                        {{ \Carbon\Carbon::parse($item->created_at)->format('d/m/y') }}</td>
+                                    <td x-data class="px-4 py-3 flex items-center justify-end">
+                                        <button x-on:click="$dispatch('open-modal', {name : 'delete'})"
                                             class="px-3 py-1 bg-red-500 text-white rounded">X</button>
-                                            <a href="{{route('edit' , $item->id)}}"
+                                        <x-modal name="delete" title="Eliminare definitivamente l'articolo?">
+                                            @slot('body')
+                                                <button type="submit" wire:click="delete({{ $item->id }})"
+                                                    class="px-4 py-2 font-bold bg-green-500 hover:bg-green-600 text-white rounded">Conferma</button>
+                                            @endslot
+                                        </x-modal>
+
+                                        <a href="{{ route('edit', $item->id) }}"
                                             class="ml-5 px-3 py-1 bg-blue-500 text-white rounded">Modifica</a>
                                     </td>
-                                    
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-
                 <div class="py-4 px-3">
                     <div class="flex ">
                         <div class="flex space-x-4 items-center mb-3">
@@ -84,5 +87,4 @@
             </div>
         </div>
     </section>
-
 </div>

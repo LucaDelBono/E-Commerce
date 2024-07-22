@@ -1,6 +1,6 @@
 <div>
-    @include('component.navbar')
-    @include('component.successMessage')
+    @include('components.navbar')
+    @include('components.successMessage')
     @section('title', 'Aggiungi articoli | ')
 
     <div class="mt-10">
