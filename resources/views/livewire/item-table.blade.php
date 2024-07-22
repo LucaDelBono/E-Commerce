@@ -52,9 +52,9 @@
                                     <td class="px-4 py-3">
                                         {{ \Carbon\Carbon::parse($item->created_at)->format('d/m/y') }}</td>
                                     <td x-data class="px-4 py-3 flex items-center justify-end">
-                                        <button x-on:click="$dispatch('open-modal', {name : 'delete'})"
+                                        <button x-on:click="$dispatch('open-modal', {name : 'delete{{$item->id}}'})"
                                             class="px-3 py-1 bg-red-500 text-white rounded">X</button>
-                                        <x-modal name="delete" title="Eliminare definitivamente l'articolo?">
+                                        <x-modal name="delete{{$item->id}}" title="Eliminare definitivamente l'articolo: {{$item->name}}?">
                                             @slot('body')
                                                 <button type="submit" wire:click="delete({{ $item->id }})"
                                                     class="px-4 py-2 font-bold bg-green-500 hover:bg-green-600 text-white rounded">Conferma</button>

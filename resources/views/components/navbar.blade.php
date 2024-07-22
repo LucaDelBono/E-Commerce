@@ -38,7 +38,7 @@
                                     d="m1 1 4 4 4-4" />
                             </svg></button>
                         <!-- Dropdown menu -->
-                        <div x-show="open"
+                        <div x-show="open" style="display: none"
                             class="z-10 mt-6 absolute font-normal divide-y rounded-lg shadow w-44 bg-gray-500 divide-gray-600">
                             @can('admin')
                                 <ul class="py-2 text-sm text-white" aria-labelledby="dropdownLargeButton">
