@@ -23,7 +23,7 @@ class ItemTable extends Component
     public function render()
     {
         $items= Item::search($this->search)->paginate($this->paginate);
-        return view('livewire.item-table',compact('items'))
+        return view('livewire.item.item-table',compact('items'))
         ->extends('layout.app')
         ->section('content');
     }

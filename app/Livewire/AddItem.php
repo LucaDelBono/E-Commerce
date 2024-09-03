@@ -39,7 +39,7 @@ class AddItem extends Component
 
     public function render()
     {
-        return view('livewire.add-item')
+        return view('livewire.item.add-item')
         ->extends('layout/app')
         ->section('content');
     }

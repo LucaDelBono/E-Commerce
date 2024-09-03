@@ -45,6 +45,7 @@ class ItemUpdate extends Component
             ]);
         }
         $this->reset('image');
+        $this->dispatch('close-modal');
         session()->flash('success', 'Articolo aggiornato con successo');
     }
 
@@ -56,7 +57,7 @@ class ItemUpdate extends Component
         $this->quantity = $this->item->quantity;
 
         $item = $this->item;
-        return view('livewire.item-update', compact('item'))
+        return view('livewire.item.item-update', compact('item'))
             ->extends('layout.app')
             ->section('content');
     }

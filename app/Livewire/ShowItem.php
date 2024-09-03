@@ -23,7 +23,7 @@ class ShowItem extends Component
     public function render()
     {
         $item = $this->item;
-        return view('livewire.show-item',compact('item'))
+        return view('livewire.item.show-item',compact('item'))
         ->extends('layout.app')
         ->section('content');
     }
