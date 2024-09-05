@@ -9,7 +9,7 @@
                 @foreach ($items as $item)
                     <div wire:key="{{$item->id}}" class="md:col-span-1 col-span-4">
                         <div
-                            class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                            class="w-full max-w-sm bg-gray-700 border border-gray-800 rounded-lg shadow">
                             <a href="{{route('show', $item->id)}}">
                                 <img class="p-8 rounded-t-lg size-96 object-contain" src="{{$item->getImageUrl()}}"
                                     alt="product image" />
