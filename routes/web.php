@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\StripeController;
 use App\Livewire\AddItem;
@@ -16,7 +17,7 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::get('/addItem', AddItem::class)->name('addItem')->middleware(['auth', 'can:admin']);
 
-Route::get('/edit/{item}', ItemUpdate::class)->name('edit')->middleware(['auth', 'can:admin']);
+Route::get('/edit/{item}', [ItemController::class, 'edit'])->name('edit')->middleware(['auth', 'can:admin']);
 
 Route::get('/item/{item}', ShowItem::class)->name('show');
 

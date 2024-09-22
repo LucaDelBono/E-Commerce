@@ -4,14 +4,13 @@ namespace App\Livewire;
 
 use Livewire\Attributes\Validate;
 use Livewire\Component;
-use App\Models\Item;
 use Livewire\WithFileUploads;
 
 class ItemUpdate extends Component
 {
     use WithFileUploads;
 
-    public Item $item;
+    public $item;
 
     #[Validate('required|min:10|max:100')]
     public $name;
