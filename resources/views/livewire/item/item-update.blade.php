@@ -45,7 +45,7 @@
             </div>
 
             <div class="mb-5 mt-2">
-                <label for="image" class="mr-10 mt-5">Scegli un' immagine</label>
+                <label for="image" class="mr-10 mt-5">Scegli un' anteprima</label>
                 <input wire:model="image" type="file" accept="image/png, image/jpeg" class="form-control">
                 @error('image')
                     <div class="text-red-500">{{ $message }}</div>

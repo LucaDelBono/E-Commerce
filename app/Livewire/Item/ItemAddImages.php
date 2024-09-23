@@ -13,22 +13,24 @@ class ItemAddImages extends Component
     use WithFileUploads;
 
     #[Rule(['images.*' => 'image|max:2048'])]
-    public $images;
+    public $images=[];
 
     public $item;
 
     public function add()
     {
         $this->validate();
-        if ($this->images) {
+        if (count($this->images) > 0) {
             foreach ($this->images as $image) {
                 Image::create([
                     'item_id' => $this->item->id,
                     'path' => $image->store('itemImages', 'public')
                 ]);
             }
-            $this->reset('images');
+            $this->reset(['images']);
             return session()->flash('success', 'Immagini aggiunte con successo!');
+        }else{
+            return session()->flash('error', 'Errore: nessuna immagine selezionata.');
         }
     }
 
@@ -39,6 +41,7 @@ class ItemAddImages extends Component
     }
     public function render()
     {
-        return view('livewire.item.item-add-images');
+        $stored_images= Image::where('item_id', $this->item->id)->get();
+        return view('livewire.item.item-add-images', compact('stored_images'));
     }
 }
