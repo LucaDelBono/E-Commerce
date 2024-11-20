@@ -8,6 +8,7 @@ E-Commercio è un piccolo sito web indirizzato alla vendita di prodotti.
 * Laravel 11
 * Livewire
 * MySql
+* Tailwind
 * PayPal API
 * Stripe API
 
